@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image:url(22.jpg);
+            background-size:100% 100%;
+        }
+    </style>    
+      <style>
+        #box1{
+            font-size:40px;
+        }
+        a{
+            font-size: 26px;
+        }
+    </style>
+</head>
+<body>
+    
+<nav>
+     <div id="box1">TodoList</div> 
+     <div id="box">
+     <script>
+         console.log(box)
+         box.innerHTML = "分类"
+     </script>
+     </div>
+     <br>
+     <a href="">已做完</a>
+     <div onmouseover="mOver(that)" onmouseout="mOut(that)" style="background-color:#3e3bf3;width:20px;height:70px;padding:20px;">耶！</div>
+
+     <a href="">未做完</a>
+     <div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:#80e0f8;width:20px;height:70px;padding:20px;">未做完</div>
+     <script>
+     function mOver(obj){
+         obj.innerHTML="冲呀！快做！"
+     }
+     function mOut(obj){
+         obj.innerHTML="未做完"
+     }
+     </script>
+     <br>
+</nav>
+</body>
+</html>

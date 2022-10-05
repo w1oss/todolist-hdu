@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image:url(22.jpg);
+            background-size:100% 100%;
+        }
+    </style>
+
+</head>
+<body>
+
+
+<div style="border: 2px dashed #ccc;width:320px;text-align:center;">     
+    <label for="sitename">任务：</label>  
+    <input type="text" id="sitename" name="sitename" class="text"/>  
+    <br/>  
+    <label for="siteurl">状态：</label>  
+    <input type="text" id="siteurl" name="siteurl"/>  
+    <br/>  
+    <input type="button" onclick="save()" value="新增记录"/>  
+    <hr/>  
+    <label for="search_phone">输入任务查询：</label>  
+    <input type="text" id="search_site" name="search_site"/>  
+
+    <p id="find_result"><br/></p>  
+</div>  
+<br/>  
+<div id="list">  
+</div>  
+<script>
+loadAll(); 	
+
+function save(){  
+    var siteurl = document.getElementById("siteurl").value;  
+    var sitename = document.getElementById("sitename").value;  
+    localStorage.setItem(sitename, siteurl);
+    alert("添加成功");
+}
+function find(){  
+    var search_site = document.getElementById("search_site").value;  
+    var siteurl = localStorage.getItem(search_site);  
+    var find_result = document.getElementById("find_result");  
+    find_result.innerHTML = search_site + "巴拉巴拉：" + siteurl;  
+}
+function loadAll(){  
+    var list = document.getElementById("list");  
+    if(localStorage.length>0){  
+        var result = "<table border='1'>";  
+        result += "<tr><td>tasks</td><td>状态(重新输入可以更改状态)</td></tr>";  
+        for(var i=0;i<localStorage.length;i++){  
+            var sitename = localStorage.key(i);  
+            var siteurl = localStorage.getItem(sitename);  
+            result += "<tr><td>"+sitename+"</td><td>"+siteurl+"</td></tr>";  
+        }  
+        result += "</table>";  
+        list.innerHTML = result;  
+    }else{  
+        list.innerHTML = "";  
+    }  
+}      
+function del_click(){
+ localStorage.clear();
+ $("pstauts").style.display = "block";
+ $("pstauts").innerHTML = "全部数据已经清除"
+}
+
+
+</script>
+</body>
+</html>
